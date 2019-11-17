@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>2018-Pre-training of Deep Bidirectional Transformers for Language Understanding | ACQUAINT</title><meta name="description" content="2018-Pre-training of Deep Bidirectional Transformers for Language Understanding"><meta name="keywords" content="Seq2seq-BERT"><meta name="author" content="Acquaintancy"><meta name="copyright" content="Acquaintancy"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="2018-Pre-training of Deep Bidirectional Transformers for Language Understanding"><meta name="twitter:description" content="2018-Pre-training of Deep Bidirectional Transformers for Language Understanding"><meta name="twitter:image" content="https://i.loli.net/2019/11/17/bNAr9IDjxsqmXR1.png"><meta property="og:type" content="article"><meta property="og:title" content="2018-Pre-training of Deep Bidirectional Transformers for Language Understanding"><meta property="og:url" content="http://yoursite.com/2019/11/17/2018-Pre-training%20of%20Deep%20Bidirectional%20Transformers%20for%20Language%20Understanding/"><meta property="og:site_name" content="ACQUAINT"><meta property="og:description" content="2018-Pre-training of Deep Bidirectional Transformers for Language Understanding"><meta property="og:image" content="https://i.loli.net/2019/11/17/bNAr9IDjxsqmXR1.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2019/11/17/2018-Pre-training%20of%20Deep%20Bidirectional%20Transformers%20for%20Language%20Understanding/"><link rel="prev" title="2017-Attention Is All You Need" href="http://yoursite.com/2019/11/17/2017-AttentionIsAllYouNeed/"><link rel="next" title="2019-ALBERT" href="http://yoursite.com/2019/11/17/2019-ALBERT/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'false',
+  Snackbar: undefined
+  
+}</script></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">ACQUAINT</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="https://i.loli.net/2019/11/16/in8qFw425aE6RUx.jpg" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">2</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#2019-10-16"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">2019.10.16</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Abstract"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">Abstract</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Introduction"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">Introduction</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Related-Work"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">Related Work</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#BERT"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">BERT</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Model-Architecture"><span class="toc_mobile_items-number">5.0.1.</span> <span class="toc_mobile_items-text">Model Architecture</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Input-Output-Representations"><span class="toc_mobile_items-number">5.0.2.</span> <span class="toc_mobile_items-text">Input/Output Representations</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Pre-training-BERT"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">Pre-training BERT</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Task-2-Next-Sentence-Prediction-NSP"><span class="toc_mobile_items-number">6.0.1.</span> <span class="toc_mobile_items-text">Task #2 : Next Sentence Prediction(NSP)</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#Pre-training-data"><span class="toc_mobile_items-number">6.0.2.</span> <span class="toc_mobile_items-text">Pre-training data</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Fine-tuning-BERT"><span class="toc_mobile_items-number">7.</span> <span class="toc_mobile_items-text">Fine-tuning BERT</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Ablation-Studies"><span class="toc_mobile_items-number">8.</span> <span class="toc_mobile_items-text">Ablation Studies</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Additional-Details-for-BERT"><span class="toc_mobile_items-number">9.</span> <span class="toc_mobile_items-text">Additional Details for BERT</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#Feature-based-v-s-Fine-tuning"><span class="toc_mobile_items-number">10.</span> <span class="toc_mobile_items-text">Feature-based v.s. Fine-tuning</span></a></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2019-10-16"><span class="toc-number">1.</span> <span class="toc-text">2019.10.16</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">2.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">3.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Related-Work"><span class="toc-number">4.</span> <span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BERT"><span class="toc-number">5.</span> <span class="toc-text">BERT</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Model-Architecture"><span class="toc-number">5.0.1.</span> <span class="toc-text">Model Architecture</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Input-Output-Representations"><span class="toc-number">5.0.2.</span> <span class="toc-text">Input/Output Representations</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre-training-BERT"><span class="toc-number">6.</span> <span class="toc-text">Pre-training BERT</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Task-2-Next-Sentence-Prediction-NSP"><span class="toc-number">6.0.1.</span> <span class="toc-text">Task #2 : Next Sentence Prediction(NSP)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pre-training-data"><span class="toc-number">6.0.2.</span> <span class="toc-text">Pre-training data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fine-tuning-BERT"><span class="toc-number">7.</span> <span class="toc-text">Fine-tuning BERT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ablation-Studies"><span class="toc-number">8.</span> <span class="toc-text">Ablation Studies</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Additional-Details-for-BERT"><span class="toc-number">9.</span> <span class="toc-text">Additional Details for BERT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feature-based-v-s-Fine-tuning"><span class="toc-number">10.</span> <span class="toc-text">Feature-based v.s. Fine-tuning</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.loli.net/2019/11/17/bNAr9IDjxsqmXR1.png)"><div id="post-info"><div id="post-title"><div class="posttitle">2018-Pre-training of Deep Bidirectional Transformers for Language Understanding</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-11-17<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-11-17</time><div class="post-meta-wordcount"><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h2 id="2019-10-16"><a href="#2019-10-16" class="headerlink" title="2019.10.16"></a>2019.10.16</h2><ol>
+<li>在论文中，BERT的输入之一-Segment Embedding 是训练出来的。</li>
+<li>因为fine-tuning的时候要将BERT与下游模型共同训练，所以原则上要保证目标函数的一致性。但是MLM在下游模型中不出现，故取80-10-10的分配。</li>
+<li>The advantage of this procedure is that the Transformer encoder does not know which words it will be asked to predict or which have been replaced by random words, so <strong>it is forced to keep a distributional contextual representation of every input token.</strong></li>
+</ol>
+<p>##2019.8.24</p>
+<ol>
+<li>BERT的一个显著提升是Self-attention，所以自带Bi-directional。在Self-attention的基础上，辅以mask的训练方法，使得BERT的表现如此出色。</li>
+<li>BERT的训练时用了一个超大的数据集和超大的算力（也基于超大的参数），所以它能够提取一些深层次上的语义特征。这种语义特征是基本的，使得它在做downstream的时候，即使task的labeled data很少，也能表现出很不错的效果。</li>
+<li>Fine-tuning很强大，可以应用到各种task中。</li>
+<li>迁移学习！</li>
+</ol>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ol>
+<li>Unlike recent language representation models,BERT is designed to pre-train deep bidirectional representations from enlabeled text by jointly conditioning on both left and right context in all layers.</li>
+<li>As a result, the pre-trained <strong>BERT model can be ﬁne-tuned with just one additional output layer</strong> to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-speciﬁc architecture modiﬁcations.</li>
+</ol>
+<ol>
+<li><em>BERT和其他的word embedding方法不同，BERT同时考虑了词的左右语境</em></li>
+<li><em>在很多应用场景上，BERT只需要一层额外的output就可以通过fine-tuning来得到很好的结果。（具体如何应用见paper或者李宏毅BERT）</em></li>
+</ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol>
+<li><p>We argue that current techniques restrict the power of the pre-trained representations, especially for the ﬁne-tuning approaches. <strong>The major limitation is that standard language models are unidirectional</strong>, and this limits the choice of architectures that can be used during pre-training.</p>
+</li>
+<li><p><strong>BERT alleviates the previously mentioned unidirectionality constraint by using a “masked language model” (MLM)</strong> pre-training objective.</p>
+<p>The masked language model <strong>randomly masks some of the tokens from the input</strong>, and the objective is <strong>to predict the original vocabulary id</strong> of the masked word based only on its context. Unlike left-to-right language model pre-training, the MLM objective enables the representation to <strong>fuse the left and the right context</strong>, which allows us to pre-train a deep bidirectional Transformer.</p>
+</li>
+<li><p>We also use a “<strong>next sentence prediction</strong>” task that jointly pre-trains text-pair representations.</p>
+</li>
+</ol>
+<ol>
+<li><em>单向网络是限制很多语言模型的因素。</em></li>
+<li><em>BERT用MLM的方法来缓解了“单向网络”对语言模型的限制。MLM是随机地mask一些input中的tokens，在预测这个masked词的时候，可以同时考虑他的左边和右边的语境。而传统的单方向的语言模型，每个词语的生成只能考虑它前面的语境。</em></li>
+<li><em>BERT = MLM + NSP（next sentence prediction）</em></li>
+</ol>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p>####Unsupervised Feature-based Approaches</p>
+<ol>
+<li>Learning widely applicable representations of words.</li>
+</ol>
+<h2 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h2><ol>
+<li><p>Two steps : <em>pre-training</em> and <em>fine-tuning</em>.</p>
+</li>
+<li><p><strong>Pre-training</strong> : the model is trained on unlabeled data over different pre-training tasks.</p>
+<p><strong>Fine-tuning</strong> : the model is first initialized with the pre-trained parameters,and all of the parameters are fine-tuned using labeled data from the downstream tasks.</p>
+</li>
+<li><p><strong>A</strong> <strong>distinctive feature of BERT</strong> is its unified architecture across different tasks.</p>
+</li>
+</ol>
+<ol>
+<li><p><em>pre-training：用无标签的data来训练模型。</em></p>
+<p><em>Fine-tuning：用pre-training的参数作为模型初参数，然后针对不同的task添加额外的NN，一起训练。</em></p>
+</li>
+<li><p><em>BERT的一个显著的优势就是可以针对不同的task用统一的pre-training模型。</em></p>
+</li>
+</ol>
+<h4 id="Model-Architecture"><a href="#Model-Architecture" class="headerlink" title="Model Architecture"></a>Model Architecture</h4><ol>
+<li>A multi-layer bidirectional Transformer encoder . The implementation is almost identical to the original.</li>
+<li>In this work, we denote the number of layers (i.e., Transformer blocks) as <em>L</em>, the hidden size as <em>H</em>, and the number of self-attention heads as <em>A</em> . We primarily report results on two model sizes: <strong>BERT BASE</strong> (L=12, H=768, A=12, Total Param-eters=110M) and <strong>BERT LARGE</strong> (L=24, H=1024, A=16, Total Parameters=340M).  <em>(BERT BASE was chosen to have the same model size as OpenAI GPT for comparison purposes.</em>)</li>
+</ol>
+<ol>
+<li>BERT的模型与Transformer的encoder几乎相同。</li>
+<li>BERT分为BERT base和BERT large，二者的模型大小不同（110M / 340M）。设计BERT base的原因是为了个GPT比较（用了相同的参数数量）。</li>
+</ol>
+<h4 id="Input-Output-Representations"><a href="#Input-Output-Representations" class="headerlink" title="Input/Output Representations"></a>Input/Output Representations</h4><ol>
+<li><p>To make BERT handle a variety of down-stream tasks, our input representation is able to unambiguously represent both <strong>a single sentence and a pair of sentences</strong> (e.g., h Question, Answer i) in one token sequence . A <strong>“sequence”</strong> refers to the input token sequence to BERT, which may be a single sentence or two sentences packed together.</p>
+</li>
+<li><p>Use WordPiece embeddings . </p>
+<p>[CLS] : the first token of every sequence . The final hidden state corresponding to this token is used as the aggregate sequence representation for <strong>classification tasks.</strong> </p>
+<p>[SEP] : <strong>separate sentence pairs</strong> . Also, we add <strong>a learned embedding (E)</strong> to every token indicating whether it belongs to sentence A or sentence B .</p>
+</li>
+<li><p>For a given token, its input representation is constructed by <strong>summing the corresponding token, segment, and position embeddings</strong>.</p>
+<p><img alt="截屏2019-10-2410.37.11.png" data-src="https://i.loli.net/2019/11/17/bNAr9IDjxsqmXR1.png" class="lazyload"></p>
+</li>
+<li><p>We differentiate the sentences in two ways. First, we separate them with a special token ([SEP]). Second, <strong>we add a learned embedding to every token</strong> indicating whether it belongs to sentence A or sentence B.</p>
+</li>
+</ol>
+<ol>
+<li><em>BERT的输入既可以是一个句子也可以是一对句子，所以用sequence来表示。*</em></li>
+<li><em>BERT中有几个特殊的符号（CLS、SEP等）</em></li>
+<li><em>BERT的输入向量是用WordPiece Embedding来处理的。</em></li>
+<li><em>两种方式区别分句：</em><ol>
+<li><em>SEP</em></li>
+<li><strong><em>add a LEARNED embedding  即 segment embedding是训练出来的。</em></strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="Pre-training-BERT"><a href="#Pre-training-BERT" class="headerlink" title="Pre-training BERT"></a>Pre-training BERT</h2><p>####Task #1 : Masked LM</p>
+<ol>
+<li><p>Mask some percentage of the input tokens at random , and then predict those masked tokens .(MLM)</p>
+</li>
+<li><p>The final hidden vectors corresponding to the mask tokens are fed into an output softmax ocer the vocabulary .</p>
+</li>
+<li><p><strong>We only predict the masked words rather than reconstructing the entire input .</strong></p>
+</li>
+<li><p>Downside : Because the [MASK] token does not appear during fine-tuning , we are creating a mismatch between pre-training and fine-tuning .</p>
+<p><strong>To mitigate this, we do not always replace “masked” words with the actual [MASK] token.</strong></p>
+</li>
+</ol>
+<ol>
+<li><em>把mask位置（15%）的character的输出丢到一个linear classifier中，然后预测这个mask词汇是什么（其他模型是预测整个output句子）</em></li>
+<li><em>最后一层hidden layer的mask输出中，接一个linear classifier，然后预测mask的词是什么</em></li>
+<li><em>因为在具体的应用任务中，没有mask的存在，这个会导致两个模型不匹配（违背fine-tuning）。所以我们不总是用mask来取代要mask的词。（具体操作间附录：80% 10% 10%）</em></li>
+</ol>
+<h4 id="Task-2-Next-Sentence-Prediction-NSP"><a href="#Task-2-Next-Sentence-Prediction-NSP" class="headerlink" title="Task #2 : Next Sentence Prediction(NSP)"></a>Task #2 : Next Sentence Prediction(NSP)</h4><ol>
+<li>To train a model that understands sentence relationships .</li>
+<li>When choosing the sentences A and B for each pre-training example, <strong>50% of the time B is the actual next sentence that follows A (labeled as IsNext), and 50% of the time it is a random sentence from the corpus (labeled as NotNext).</strong></li>
+<li>In prior work, only sentence embeddings are transferred to down-stream tasks, where <strong>BERT transfers all parameters to initialize end-task model parameters</strong>.</li>
+</ol>
+<ol>
+<li><em>在选择句子A和B的时候，B有50%的几率是真的A的下一句，有50%的几率不是，可能这个方法与mask方法的原理差不多</em></li>
+</ol>
+<h4 id="Pre-training-data"><a href="#Pre-training-data" class="headerlink" title="Pre-training data"></a>Pre-training data</h4><p>It is critical to <strong>use a document-level corpus</strong> rather than a shufﬂed sentence-level corpus such as the Billion Word Benchmark (Chelba et al., 2013) <strong>in order to extract long contiguous sequences</strong>.</p>
+<p><em>用篇章级的data作为输入，而不是句子级的data，是为了获得更长距离的词语关联。</em></p>
+<h2 id="Fine-tuning-BERT"><a href="#Fine-tuning-BERT" class="headerlink" title="Fine-tuning BERT"></a>Fine-tuning BERT</h2><ol>
+<li>Simply plug in the task-specific inputs and outputs into BERT and fine-tune all the parameters end-to-end .</li>
+<li>Compared to pre-training, ﬁne-tuning is relatively inexpensive. All of the results in the paper can be replicated in at most 1 hour on a single Cloud TPU, or a few hours on a GPU, starting from the exact same pre-trained model.</li>
+</ol>
+<ol>
+<li><em>paper中提到了关于分类，序列标注，QA等应用时相对应的input和output。需要的话可以查阅文章。</em></li>
+<li><em>相比于pre-training的过程，fine-tuning的过程耗费的时间少很多（因为pre-training已经获得了很好的init参数）</em></li>
+</ol>
+<h2 id="Ablation-Studies"><a href="#Ablation-Studies" class="headerlink" title="Ablation Studies"></a>Ablation Studies</h2><ol>
+<li><p><strong>An ablation study typically refers to removing some “feature” of the model or algorithm, and seeing how that affects performance.</strong></p>
+</li>
+<li><p>We believe that this is the ﬁrst work to demonstrate convincingly that scaling to extreme model sizes also leads to large improvements on very small scale tasks, provided that the model has been sufﬁciently pre-trained.</p>
+<p>We hypothesize that when the model is ﬁne-tuned directly on the downstream tasks and uses only a very small number of randomly initialized additional parameters, the task-speciﬁc models can beneﬁt from the larger, more expressive pre-trained representations even when downstream task data is very small.</p>
+</li>
+</ol>
+<ol>
+<li><em>Ablation是一个论证方法，把模型的一些组成部分去掉，看看会对模型的效果产生什么影响。</em></li>
+<li><em>BERT是基于很大量data进行训练的，但是我们认为BERT在具体的task中，即使task所用的data量很小，也能获得特别好的效果。</em></li>
+</ol>
+<h2 id="Additional-Details-for-BERT"><a href="#Additional-Details-for-BERT" class="headerlink" title="Additional Details for BERT"></a>Additional Details for BERT</h2><p>Masked LM and the Masking Procedure Assuming the unlabeled sentence is my dog is hairy, and during the random masking procedure we chose the 4-th token (which corresponding to hairy), our masking procedure can be further illustrated by</p>
+<p>• 80% of the time: Replace the word with the [MASK] token, e.g., my dog is hairy →my dog is [MASK]</p>
+<p>• 10% of the time: Replace the word with a random word, e.g., my dog is hairy → my dog is apple</p>
+<p>• 10% of the time: Keep the word un-changed, e.g., my dog is hairy → my dog is hairy. The purpose of this is to bias the representation towards the actual observed word.</p>
+<p><strong>The advantage of this procedure is that the Transformer encoder does not know which words it will be asked to predict or which have been replaced by random words, so it is forced to keep a distributional contextual representation of every input token.</strong> Additionally, because random replacement only occurs for 1.5% of all tokens (i.e., 10% of 15%), this does not seem to harm the model’s language understanding capability. In Section C.2, we evaluate the impact this proce-dure.</p>
+<ol>
+<li><em>分80% 10% 10%的目的：让model不知道哪个词是要被预测的，哪个词是被随机替换的，这样可以强迫model对每个input保持一个针对上下文的分布式表示。</em></li>
+<li><em>并且，因为随机替换词的概率只有1.5%，所以这对模型的影响是微乎其微的。</em></li>
+</ol>
+<h2 id="Feature-based-v-s-Fine-tuning"><a href="#Feature-based-v-s-Fine-tuning" class="headerlink" title="Feature-based v.s. Fine-tuning"></a>Feature-based v.s. Fine-tuning</h2><ol>
+<li><p>Feature-based : 提取出unsurpervised data中的feature，然后输入到downstream中进行训练（ElMo / Word2vec）</p>
+<p>Fine-tuning : 把pre-training和downstream接起来，共同训练(GPT / BERT)</p>
+</li>
+<li><p>Feature-based : 因为提取feature，所以downstream训练过程不改变pre-training model的参数</p>
+<p>Fine-tuning : downstream训练过程中，把pre-training的参数作为init参数，训练过程中改变pre-training的参数</p>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">Acquaintancy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/11/17/2018-Pre-training%20of%20Deep%20Bidirectional%20Transformers%20for%20Language%20Understanding/">http://yoursite.com/2019/11/17/2018-Pre-training%20of%20Deep%20Bidirectional%20Transformers%20for%20Language%20Understanding/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Seq2seq-BERT/">Seq2seq-BERT    </a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2019/11/17/bNAr9IDjxsqmXR1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/11/17/2017-AttentionIsAllYouNeed/"><img class="prev_cover lazyload" data-src="https://i.loli.net/2019/11/17/3W2aVmF651n8uAR.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>2017-Attention Is All You Need</span></div></a></div><div class="next-post pull_right"><a href="/2019/11/17/2019-ALBERT/"><img class="next_cover lazyload" data-src="https://i.loli.net/2019/11/17/wEJFSrsA2pT5KQD.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>2019-ALBERT</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/11/17/2016-Neural Machine Translation By Jointly Learning To Align And Translate/" title="2016-Neural Machine Translation By Jointly Learning To Align And Translate"><img class="relatedPosts_cover lazyload"data-src="https://i.loli.net/2019/11/17/D6C7o8UM5ZFHbwy.png"><div class="relatedPosts_title">2016-Neural Machine Translation By Jointly Learning To Align And Translate</div></a></div><div class="relatedPosts_item"><a href="/2019/11/17/2017-AttentionIsAllYouNeed/" title="2017-Attention Is All You Need"><img class="relatedPosts_cover lazyload"data-src="https://i.loli.net/2019/11/17/3W2aVmF651n8uAR.png"><div class="relatedPosts_title">2017-Attention Is All You Need</div></a></div><div class="relatedPosts_item"><a href="/2019/11/17/2019-ALBERT/" title="2019-ALBERT"><img class="relatedPosts_cover lazyload"data-src="https://i.loli.net/2019/11/17/wEJFSrsA2pT5KQD.png"><div class="relatedPosts_title">2019-ALBERT</div></a></div><div class="relatedPosts_item"><a href="/2019/11/17/Transformer-XL/" title="Transformer-XL"><img class="relatedPosts_cover lazyload"data-src="https://i.loli.net/2019/11/17/ZGE56rW9TzDyixk.png"><div class="relatedPosts_title">Transformer-XL</div></a></div><div class="relatedPosts_item"><a href="/2019/11/17/2019-RoBERTa/" title="2019-RoBERTa"><img class="relatedPosts_cover lazyload"data-src="https://img-blog.csdnimg.cn/20190909163636508.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xqcDE5MTk=,size_16,color_FFFFFF,t_70"><div class="relatedPosts_title">2019-RoBERTa</div></a></div></div><div class="clear_both"></div></div></div></div><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2019 By Acquaintancy</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
